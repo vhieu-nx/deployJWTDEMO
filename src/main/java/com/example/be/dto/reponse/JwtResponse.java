@@ -4,18 +4,17 @@ import org.springframework.security.core.GrantedAuthority;
 
 import java.util.Collection;
 
-public class JwtReponse {
+public class JwtResponse {
     private String token;
     private String type = "Bearer";
     private String name;
     private Collection<?extends GrantedAuthority> roles;
 
-    public JwtReponse() {
+    public JwtResponse() {
     }
 
-    public JwtReponse(String token, String type, String name, Collection<? extends GrantedAuthority> roles) {
+    public JwtResponse(String token, String name, Collection<? extends GrantedAuthority> roles) {
         this.token = token;
-        this.type = type;
         this.name = name;
         this.roles = roles;
     }

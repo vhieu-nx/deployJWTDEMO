@@ -1,6 +1,6 @@
 package com.example.be.controller;
 
-import com.example.be.dto.reponse.JwtReponse;
+import com.example.be.dto.reponse.JwtResponse;
 import com.example.be.dto.reponse.ReponseMessage;
 import com.example.be.dto.request.SignInForm;
 import com.example.be.dto.request.SignUpForm;
@@ -11,7 +11,6 @@ import com.example.be.security.jwt.JwtProvider;
 import com.example.be.security.userprincal.UserPrinciple;
 import com.example.be.service.impl.RoleServiceImpl;
 import com.example.be.service.impl.UserServiceImpl;
-import javassist.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -24,7 +23,6 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -86,7 +84,7 @@ public class AuthController {
         SecurityContextHolder.getContext().setAuthentication(authentication);
         String token = jwtProvider.createToken(authentication);
         UserPrinciple userPrinciple = (UserPrinciple) authentication.getPrincipal();
-        return ResponseEntity.ok(new JwtReponse(token, userPrinciple.getName(), userPrinciple.getName(), userPrinciple.getAuthorities()));
+        return ResponseEntity.ok(new JwtResponse(token,userPrinciple.getName(), userPrinciple.getAuthorities()));
 
     }
 }
