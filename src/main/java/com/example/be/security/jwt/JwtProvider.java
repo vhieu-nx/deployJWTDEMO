@@ -15,7 +15,7 @@ import java.util.Date;
 @Component
 public class JwtProvider {
     public static final Logger logger = LoggerFactory.getLogger(JwtProvider.class);
-    private String jwtSecretKey = "NguyenDongChinh";
+    private String jwtSecretKey = "jwtGrokonezSecretKey";
     private int jwtExpiration = 86400;
 
 
