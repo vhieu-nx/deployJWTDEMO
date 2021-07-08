@@ -20,6 +20,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -28,7 +29,8 @@ import java.util.Set;
 
 @CrossOrigin("*")
 @RequestMapping("/api/auth")
-@RestController
+//@RestController
+@Controller
 public class AuthController {
     @Autowired
     UserServiceImpl userService;
